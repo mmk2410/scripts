@@ -17,8 +17,8 @@ function enable_hidpi {
 
 ## Disable HiDPI
 function disable_hidpi {
-    idea=$(sed '/-Dhidpi=true/d' $STUDIO_PATH/idea.vmoptions)
-    idea64=$(sed '/-Dhidpi=true/d' $STUDIO_PATH/idea64.vmoptions)
+    idea=$(sed '/-Dhidpi=true/d' $STUDIO_PATH/studio.vmoptions)
+    idea64=$(sed '/-Dhidpi=true/d' $STUDIO_PATH/studio64.vmoptions)
     sudo echo "$idea" > $STUDIO_PATH/studio.vmoptions
     sudo echo "$idea64" > $STUDIO_PATH/studio64.vmoptions
     echo "HiDPI disabled"
