@@ -3,6 +3,8 @@ A collection of (useful) bash scripts for Linux.
 
 ## How to use
 
+If nothing other is written, do this:
+
  1. Download the script you want.
  2. Run ``chmod +x script.sh`` to make it executable
  3. Run it with ``./script.sh``
@@ -12,6 +14,21 @@ A collection of (useful) bash scripts for Linux.
 A script for automatically creating PDf files from a latex document. You can set the amounts of builds and the time between the builds.
 
 **Usage:** ``./buildpdf.sh filename [build amount] [time between builds in s]``
+
+## cpy_pst
+
+A small but useful script for copying and pasting files and directories once or more often.
+
+**Install:** ``sudo make install``
+
+**Usage:**
+
+```
+cpy filename # Copies a file / directory
+pst filename # Pasts a file / directory
+```
+
+**Remove:** ``sudo make uninstall``
 
 ## intellij-hidpi.sh
 
