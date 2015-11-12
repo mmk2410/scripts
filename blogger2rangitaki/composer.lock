@@ -1,0 +1,78 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "58637a0fe75a453726c4f248ef834809",
+    "packages": [
+        {
+            "name": "league/html-to-markdown",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/html-to-markdown.git",
+                "reference": "16f0fe21c60e8a76a51bdf3b256cb7a54bb1cac4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/html-to-markdown/zipball/16f0fe21c60e8a76a51bdf3b256cb7a54bb1cac4",
+                "reference": "16f0fe21c60e8a76a51bdf3b256cb7a54bb1cac4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-xml": "*",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\HTMLToMarkdown\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Colin O'Dell",
+                    "email": "colinodell@gmail.com",
+                    "homepage": "http://www.colinodell.com",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Nick Cernis",
+                    "email": "nick@cern.is",
+                    "homepage": "http://modernnerd.net",
+                    "role": "Original Author"
+                }
+            ],
+            "description": "An HTML-to-markdown conversion helper for PHP",
+            "homepage": "https://github.com/thephpleague/html-to-markdown",
+            "keywords": [
+                "html",
+                "markdown"
+            ],
+            "time": "2015-07-25 16:38:14"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
