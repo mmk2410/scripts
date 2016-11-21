@@ -168,3 +168,12 @@ Where `posts.xml` is your pBlog/Rangitaki 0.2 XML file.
 The Rangitaki blog posts are saved in `articles/`
 
 **The `<otherlinks>` tag is not supported.**
+
+## Contributing
+
+1. Fork it
+2. Create a feature branch with a meaningful name (`git checkout -b my-new-feature`)
+3. Add yourself to the CONTRIBUTORS file
+4. Commit your changes (`git commit -am 'Add some feature'`)
+5. Push to your branch (`git push origin my-new-feature`)
+6. Create a new pull request
