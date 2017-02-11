@@ -81,7 +81,7 @@ main(List<String> args) async {
   /// Send mail using the mail command.
   await Process.run(
       "mail",
-      ["-s", "\"New Eclipse Version: $version\"", recipient],
+      ["-s", "New Eclipse Version: $version", recipient],
       runInShell: true
   );
 
