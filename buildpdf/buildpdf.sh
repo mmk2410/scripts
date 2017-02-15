@@ -11,6 +11,7 @@ print() {
     local text="$1"
 
     date "+[%F %T] $text"
+
 }
 
 run() {
@@ -18,6 +19,7 @@ run() {
     local filename="$1"
     local number="$2"
 
+    print "Building..."
     pdflatex "$filename" > /dev/null 2>&1
     print "Build $number ready"
     
