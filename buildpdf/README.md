@@ -19,5 +19,5 @@ You have to give a filename as an argument and you're able to set, how much buil
 
 ### Further information
 
- - [https://mmk2410.org/2015/01/06/107/](Bash script for LaTeX users)
- - [https://mmk2410.org/2015/01/09/update-bash-script-for-latex-users/](UPDATE: Bash script for LaTeX users)
+ - [Bash script for LaTeX users](https://mmk2410.org/2015/01/06/107/)
+ - [UPDATE: Bash script for LaTeX users](https://mmk2410.org/2015/01/09/update-bash-script-for-latex-users/)
