@@ -1,0 +1,73 @@
+* =mediathek-download=
+
+  =mediathek-download= is a simple [[https://fishshell.com][fish]] script for downloading videos form the
+  mediatheks from ZDF, ARD and similar one who split and devliver the video in
+  segments. Additional to download the video, it combines it to one file and
+  converts it to mp4. Currently it only handles /.ts/ files.
+
+** Preparation
+
+   The following software is required to run this script:
+
+   - [[https://fishshell.com][fish]]
+   - [[https://curl.haxx.se/][curl]]
+   - [[https://ffmpeg.org/][ffmpeg]]
+
+   It may be convenient to make the script executable with =chmod +x mediathek-download.fish=.
+
+** Executing
+
+   It is assumed, that the script is executable as shown before. If it isn't
+   prepend the executions with =fish=.
+
+   #+BEGIN_SRC sh
+   ./mediathek-download.fish <number of sequences> <URL before segment number> [URL after segment number]
+   #+END_SRC
+
+   The first to arguments are required, while the last one is optional. The
+   number of sequences and the URL can be extracted from the developer tools of
+   your browser. Read the next chapter for more information.
+
+** Extracting necessary informations
+
+*** Firefox
+
+    1. Visit the site with the video.
+    2. Open the Developer Tools: /Menu > Web Developer > Network/.
+    3. Make sure only /Media/ and /Other/ are selected in the filter bar (second
+       bar from top in the Developer Tools window).
+    4. It may be necessary to select a specific video quality in the player,
+       especially if it is set to automatic.
+    5. Start the video or, if it autostarted, reload the page.
+    6. Make sure you see some requests containing a /.ts/ file extension
+    7. Jump nearly to the end of the video
+    8. A pattern showing the segment numbers should be visible. Remember the
+       last (and probably highest number), it should be the /number of
+       sequences/.
+    9. Click on the last list entry once the video finished.
+    10. Select and copy the complete /Request URL/
+    11. Split the copied string into the part before and (is existent) the part
+        after the segment number.
+    12. Run the script with the now known parameters.
+
+*** Google Chrome
+
+    1. Visit the site with the video.
+    2. Open the Developer Tools: /Menu > More Tools > Developer Tools/.
+    3. Select /Network/ in the Developer Tools window
+    4. Make sure only /XHR/ is selected in the filter bar (third bar from top
+       in the Developer Tools window). If nothing is found there after the
+       following stepts, try /All/.
+    5. It may be necessary to select a specific video quality in the player,
+       especially if it is set to automatic.
+    6. Start the video or, if it autostarted, reload the page.
+    7. Make sure you see some requests containing a /.ts/ file extension
+    8. Jump nearly to the end of the video
+    9. A pattern showing the segment numbers should be visible. Remember the
+       last (and probably highest number), it should be the /number of
+       sequences/.
+    10. Click on the last list entry once the video finished.
+    11. Select and copy the complete /Request URL/ in the /Headers/ tab.
+    12. Split the copied string into the part before and (is existent) the part
+        after the segment number.
+    13. Run the script with the now known parameters.
