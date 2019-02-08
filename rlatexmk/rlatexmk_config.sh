@@ -1,0 +1,5 @@
+HOST="127.0.0.1"
+USER="texlive"
+REMOTE_PATH="/tmp"
+RSYNC_OPTIONS="--delete --archive --human-readable --partial --progress"
+LATEXMK_OPTIONS="-lualatex"
