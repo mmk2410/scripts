@@ -73,7 +73,7 @@ The converter will read all `.md` and `.markdown` in the directory `./in/`, so c
 
 ## PHP Scripts
 
-These scripts are **not for web development**, there for executing on your computer. Just like a bash script, but written in PHP. There also **written for Linux**. I have no idea if they run under another system and I'm not going to test it (if you tested it and  if they worked, write me a mail at [marcelmichaelkapfer@yahoo.co.nz](mailto:marcelmichaelkapfer@yahoo.co.nz) and I will add it to this README).
+These scripts are **not for web development**, there for executing on your computer. Just like a bash script, but written in PHP. There also **written for Linux**. I have no idea if they run under another system and I'm not going to test it (if you tested it and  if they worked, write me a mail at opensource(at)mmk2410(dot)org and I will add it to this README).
 
 In order to use these scripts you have to install `php` on your computer.
 

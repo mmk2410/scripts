@@ -2,7 +2,7 @@
 
 # A small script for copy pasting files and directories.
 #
-# Marcel Kapfer (mmk2410) <marcelmichaelkapfer@yahoo.co.nz>
+# Marcel Kapfer (mmk2410) <opensource@mmk2410.org>
 #
 # 15 August 2015
 #
