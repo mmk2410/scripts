@@ -1,6 +1,0 @@
-name: eclipse_version_scraping
-version: 0.1.1
-description: Scrape the number of the latest version from the eclipse.org page.
-dependencies:
-  html: ^0.13.1
-  http: ^0.11.3
