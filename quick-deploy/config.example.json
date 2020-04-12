@@ -1,0 +1,6 @@
+{
+    "remote-path": "git@git.example.com:yourname/somerepo",
+    "branch": "develop",
+    "local-path": "/var/www/html/",
+    "secret": "YOUR-SECRET"
+}
