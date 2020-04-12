@@ -16,7 +16,7 @@ You have a Git server (like [Gitea](https://gitea.io), but just a bare repo shou
 
 ```
 #!/bin/sh
-curl https://your.deploy.server?secret=YOUR_SECRET
+curl https://your.deploy.server/quick-deploy.php?secret=YOUR_SECRET
 ```
 
 ## Configuration variables
