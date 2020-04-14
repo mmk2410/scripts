@@ -4,6 +4,8 @@ Quick Deploy is a simple and dirty script-based solution for continous delivery.
 
 ![Quick Deploy Graphic](quick-deploy/res/quick-deploy.png "Quick Deploy Graphic")
 
+See also my [corresponding blog post](https://mmk2410.org/2020/04/14/quick-deploy-initial-release/).
+
 ## Basic idea
 
 You have a Git server (like [Gitea](https://gitea.io), but just a bare repo should also work) where you host a repo that you want to deploy somewhere. The somewhere (same or other server) has a Web Server with PHP capabilities running (my use case: I develop a TYPO3 site package, TYPO3 runs on PHP). In your Git repo (server-side) you define post-receive Git hook which just sends a simple HTTP GET request your deploy-server (over HTTTPS, of course) like https://example.com/quick-deploy.php?secret=YOUR_SECRET. Where your secret is known to you, your git post-receive hook and the quick-deploy script. If the given secret matches the predefinded than a pull request in the given repository is attempted. It git fails, a 500 error will be returned. Additionally the git output will be printed.
