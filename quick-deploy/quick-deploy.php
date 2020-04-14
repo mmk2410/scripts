@@ -180,10 +180,10 @@ function authenticate($secret)
 }
 
 /**
- * Run git fetch and git checkout in the local repository.
+ * Run git checkout and git pull in the local repository.
  *
- * The changes for the specified branch will be fetched and the branch checked
- * out.
+ * First trying to switch to the predefined branch and then it pulls the latest
+ * changes.
  *
  * @param string $local_path path of the local repository
  * @param string $branch branch name that should be checked out
@@ -196,17 +196,17 @@ function git_pull($local_path, $branch)
         # Switch to local repository
         chdir($local_path);
 
-        # Fetch changes for pre-configured branch
-        print_bold("Fetching " . $branch . " branch.");
-        exec("git fetch --progress origin " . $branch . " 2>&1", $output, $return_var);
-        print_git_output($output);
-        handle_status($return_var, "Fetching");
-
         # Switch to pre-configured branch
         print_bold("Switching to " . $branch . " branch");
-        exec("git checkout --progress " . $branch . " 2>&1", $output, $return_var);
+        exec("git checkout --progress " . $branch . " -- 2>&1", $output, $return_var);
         print_git_output($output);
         handle_status($return_var, "Checkout");
+
+        # Pull changes for pre-configured branch
+        print_bold("Fetching " . $branch . " branch.");
+        exec("git pull --progress origin " . $branch . " 2>&1", $output, $return_var);
+        print_git_output($output);
+        handle_status($return_var, "Fetching");
     } else {
         handle_error("No .git directory found, but directory already exists.");
     }
