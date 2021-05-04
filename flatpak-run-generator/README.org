@@ -1,7 +1,7 @@
 #+TITLE: Flatpak Launcher Script Generator
 
-Description: Create shell scripts for launching flatpak apps in the users bin directory (~/.local/bin). For successful usage it is recommended to add this directory to the $PATH variable.
+Description: Create shell scripts for launching flatpak apps in the users bin directory (=~/.local/bin=). For successful usage it is recommended to add this directory to the =$PATH= variable.
 
-For users not liking this script or who want to get rid all created scripts for some other reasons it is possible to run the following command inside the ~/.local/bin folder.
+For users not liking this script or who want to get rid all created scripts for some other reasons it is possible to run the following command inside the =~/.local/bin= folder.
 
 ~cd ~/.local/bin && grep -rl flatpak-run-generator | xargs rm~
