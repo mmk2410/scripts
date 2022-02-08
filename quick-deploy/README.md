@@ -1,6 +1,6 @@
 # Quick Deploy
 
-Quick Deploy is a simple and dirty script-based solution for continous delivery.
+**Quick Deploy is a simple PHP-based solution for continuous delivery without any dependencies.**
 
 ![Quick Deploy Graphic](quick-deploy/res/quick-deploy.png "Quick Deploy Graphic")
 
