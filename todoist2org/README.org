@@ -1,0 +1,12 @@
+* Opinionated Todoist to Org-Mode Exporter
+
+Very early WIP state.
+
+** Quick Start
+
+1. Copy =.env.example= to =.env=
+2. Set =TOKEN= to Todoist API token in =.env=
+3. Adjust =OUTPUT_DIR= in =.env= if necessary
+4. Create new Python virtual environment and activated it
+5. Install dependencies with =pip install -r requirements.txt=
+6. Execute script with =python todoist2org.py=

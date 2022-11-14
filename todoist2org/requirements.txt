@@ -1,0 +1,3 @@
+todoist_api_python
+tqdm
+python-dotenv
