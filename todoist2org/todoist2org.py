@@ -199,6 +199,16 @@ def parse_projects():
         parent_project_name = parse_project(project, parent_project_name)
 
 
+def print_warning():
+    """Print warning about missing recurrences."""
+    print(
+        "Please keep in mind that this script does not support recurring "
+        + "items and will only schedule them for next occurence. "
+        + "If a task is recurring then the description will include a note "
+        + "'(recurring)'."
+    )
+
+
 def main():
     """Run the program."""
     load_dotenv()
@@ -207,6 +217,7 @@ def main():
     create_output_dir()
     parse_projects()
     print_stats()
+    print_warning()
 
 
 if __name__ == "__main__":
