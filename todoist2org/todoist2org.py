@@ -57,7 +57,7 @@ def parse_comments(task_id):
     return output
 
 
-def parse_task(task, subtask):
+def parse_task(task, subtask, additional_labels):
     """Print a task."""
     output = []
     if subtask:
@@ -65,9 +65,10 @@ def parse_task(task, subtask):
     else:
         headline = f"** TODO {task.content}"
 
-    labels = task.labels
+    labels = [*additional_labels, *task.labels]
     if len(labels) > 0:
-        headline += " :" + ":".join(labels) + ":"
+        labels_string = " :" + ":".join(labels) + ":"
+        headline += labels_string.replace("-", "_")
 
     output.append(headline)
 
@@ -110,7 +111,7 @@ def parse_task(task, subtask):
     return output
 
 
-def parse_sections(project_id, tasks):
+def parse_sections(project_id, tasks, additional_labels):
     """Print a section."""
     output = []
     sections = api.get_sections(project_id=project_id)
@@ -119,6 +120,8 @@ def parse_sections(project_id, tasks):
     for section in sections:
         output.append(f"* {section.name}")
         output.append("")
+        section_slug = get_filename(section.name, False)
+        additional_labels.append(section_slug)
         subtask = False
         for task in tasks:
             if task.section_id == section.id:
@@ -127,7 +130,7 @@ def parse_sections(project_id, tasks):
                     subtask = True
                 if subtask and not task.parent_id:
                     subtask = False
-                output.extend(parse_task(task, subtask))
+                output.extend(parse_task(task, subtask, additional_labels))
 
     return output
 
@@ -135,6 +138,8 @@ def parse_sections(project_id, tasks):
 def parse_project(project, parent_project_name=""):
     """Parse a project."""
     filename = get_filename(project.name)
+    project_slug = get_filename(project.name, False)
+    additional_lables = [f"@{project_slug}"]
     content = []
 
     output_dir = os.environ.get("OUTPUT_DIR", "./output")
@@ -166,9 +171,10 @@ def parse_project(project, parent_project_name=""):
                 subtask = True
             if subtask and not task.parent_id:
                 subtask = False
-            content.extend(parse_task(task, subtask))
 
-    content.extend(parse_sections(project.id, tasks))
+            content.extend(parse_task(task, subtask, additional_lables))
+
+    content.extend(parse_sections(project.id, tasks, additional_lables))
 
     write_file(path, content)
     return parent_project_name
