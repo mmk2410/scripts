@@ -146,10 +146,12 @@ def parse_project(project, parent_project_name=""):
 
     if parent_project_name and project.parent_id:
         content.append(f"#+title: {parent_project_name}: {project.name}")
+        content.append(f"#+category: {parent_project_name}: {project.name}")
         parent_filename = get_filename(parent_project_name, False)
         path = f"{output_dir}/{parent_filename}_{filename}"
     else:
         content.append(f"#+title: {project.name}")
+        content.append(f"#+category: {project.name}")
         path = f"{output_dir}/{filename}"
 
     if not project.parent_id:
