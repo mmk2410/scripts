@@ -111,7 +111,7 @@ def parse_task(task, subtask, additional_labels):
     return output
 
 
-def parse_sections(project_id, tasks, additional_labels):
+def parse_sections(project_id, tasks, project_label):
     """Print a section."""
     output = []
     sections = api.get_sections(project_id=project_id)
@@ -121,7 +121,7 @@ def parse_sections(project_id, tasks, additional_labels):
         output.append(f"* {section.name}")
         output.append("")
         section_slug = get_filename(section.name, False)
-        additional_labels.append(section_slug)
+        additional_labels = [*project_label, section_slug]
         subtask = False
         for task in tasks:
             if task.section_id == section.id:
