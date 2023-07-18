@@ -1,0 +1,24 @@
+#+title: flatpak-sync
+
+=flatpak-sync.sh= is a rudimentary Bash(!) script for keeping the installed flatpak apps (only apps, not runtimes) in sync with what is declared in a simple file.
+
+* Usage
+
+1. Download the =flatpak-sync.sh= script and make it executable (~chmod +x flatpak-sync.sh~)
+2. Create an app list file at =~/.config/flatpak-sync/apps.list= following the format in the next section.
+3. Run the script with ~./flatpak-sync.sh~ (given it is in your current working directory)
+
+* App List Format
+
+The =apps.list= is a list of application IDs (e.g. =org.kde.kdenlive=), each on their own line. Empty lines and lines starting with a hash sign (~#~) are ignored.
+
+You may have a look at the =example.list= for a quick overview of what is achievable.
+
+* Advanced usage
+
+It is possible to use a different app list file by setting the =APP_LIST_PATH= environment variable, e.g. if your app list it at =~/dotfiles/flatpaks.list= then you might call the script with ~APPS_LIST_PATH=$HOME/dotfiles/flatpaks.list ./flatpak-sync.sh~ (again assuming the script is in the current working directory).
+
+* Next possible steps
+
+- Add a script for automatically syncing the file with a Git repository and executing it after a sync
+- Add a SystemD service/timer for the automatic syncing script
