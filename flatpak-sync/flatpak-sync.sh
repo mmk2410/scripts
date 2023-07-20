@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+#
+# flatpak-sync is an easy approach for declaring the installed flatpak apps.
+#
+# 2023 (c) Marcel Kapfer <opensource@mmk2410.org>
+# Licensed under the MIT License
 
 set -euo pipefail
 
