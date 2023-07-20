@@ -24,11 +24,11 @@ error() {
 }
 
 usage() {
-    info "Usage:"
-    info " -l  Path to the file keeping the date of the last check."
-    info " -r  Path to the directory containing all org-roam files."
-    info " -b  Path to the hugo base directory."
-    info " -s  Path of the Emacs lisp script for exporting the org-roam files."
+    info "Usage: flatpak-sync [sync | add <appId> | remove <appId> ]"
+    info "sync: Synchronized installed apps with app list."
+    info "add | a | install | i: Add app with app id to the list and sync."
+    info "remove | r | uninstall | u: Remove app with app id from the list and sync."
+    info "Without any given argument a sync is executed."
 }
 
 function sync() {
