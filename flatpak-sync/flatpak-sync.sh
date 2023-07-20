@@ -15,15 +15,15 @@ INFO_COLOR="\033[0;32m"
 ERR_COLOR="\033[1;31m"
 NO_COLOR="\033[0m"
 
-info() {
+function info() {
     printf "$APP_COLOR[$APP_NAME] $INFO_COLOR$1$NO_COLOR\n"
 }
 
-error() {
+function error() {
     printf "$APP_COLOR[$APP_NAME] $ERR_COLOR$1$NO_COLOR\n"
 }
 
-usage() {
+function usage() {
     info "Usage: flatpak-sync [sync | add <appId> | remove <appId> | usage]"
     info "sync: Synchronized installed apps with app list."
     info "add | a | install | i: Add app with app id to the list and sync."
