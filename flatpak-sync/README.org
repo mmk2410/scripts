@@ -41,6 +41,5 @@ It is possible to use a different app list file by setting the =APP_LIST_PATH= e
 
 * Next possible steps
 
-- Add a script for automatically syncing the file with a Git repository and executing it after a sync
-- Add a SystemD service/timer for the automatic syncing script
-- Write nix home-manager module to define a list of apps in your home manager configuration.
+- Add a script for automatically syncing the file with a Git repository and executing it after a sync. A  SystemD service/timer would enhance this. [[https://github.com/gitwatch/gitwatch][gitwatch]] could perhaps provide a solution for this.
+- Write Nix home-manager module to define a list of apps in your home manager configuration.
