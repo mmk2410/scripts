@@ -21,6 +21,7 @@ function sync() {
             continue
         fi
         requested_apps_cleaned+=("$app")
+        # shellcheck disable=SC2076
         if [[ ! "${installed_apps[*]}" =~ "${app}" ]]; then
             echo "$app not installed. Installing it."
             flatpak install -y "$app"
@@ -29,6 +30,7 @@ function sync() {
 
     echo "Checking for apps to remove."
     for app in "${installed_apps[@]}"; do
+        # shellcheck disable=SC2076
         if [[ ! "${requested_apps_cleaned[*]}" =~ "${app}" ]]; then
             echo "$app no found in apps list. Removing it.";
             flatpak uninstall -y "$app"
