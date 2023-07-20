@@ -46,9 +46,14 @@ function add() {
         exit 1
     fi
 
-    if grep "$appId" "$APPS_LIST_PATH"; then
-        echo "App already in apps list. Run with sync command to install."
+    if grep -q "# $appId" "$APPS_LIST_PATH"; then
+        echo "App already in apps list but commented out. Manual fix of the app list file necessary."
         exit 2
+    fi
+
+    if grep -q "$appId" "$APPS_LIST_PATH"; then
+        echo "App already in apps list. Run with sync command to install."
+        exit 3
     fi
 
     local appsListFile
@@ -64,7 +69,12 @@ function remove() {
         exit 1
     fi
 
-    if ! grep "$appId" "$APPS_LIST_PATH"; then
+    if grep -q "# $appId" "$APPS_LIST_PATH"; then
+        echo "App already in apps list but commented out. No remove possible."
+        exit 2
+    fi
+
+    if ! grep -q "$appId" "$APPS_LIST_PATH"; then
         echo "App not in apps list."
         exit 2
     fi
