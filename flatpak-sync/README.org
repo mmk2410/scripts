@@ -2,13 +2,34 @@
 
 =flatpak-sync.sh= is a rudimentary Bash(!) script for keeping the installed flatpak apps (only apps, not runtimes) in sync with what is declared in a simple file.
 
-* Usage
+* Installation
 
 1. Download the =flatpak-sync.sh= script and make it executable (~chmod +x flatpak-sync.sh~)
-2. Create an app list file at =~/.config/flatpak-sync/apps.list= following the format in the next section.
-3. Run the script with ~./flatpak-sync.sh~ (given it is in your current working directory)
+2. /optional/ Move the script into a directory in your path and rename it to =flatpak-sync= This allows you to call the script from everywhere. The rest of the documentation will  assume that you did this. If not, you can call the script with ~./flatpak-sync.sh~ given your in the directory where the script is located.
+3. Create an app list file at =~/.config/flatpak-sync/apps.list= following the format in the next section.
+4. Run the script with ~flatpak-sync~ (given it is in your current working directory)
+
+* Usage
+
+By default, the ~flatpak-sync~ command will trigger a sync of your apps list and the installed applications.
+
+Additionally, =flatpak-sync= provides two command for modifying the apps list file allowing for using the script in a entirely non-declarative style (meaning that you do not need to change the file manually).
+
+** sync
+
+When called without a argument, or with the argument =sync= and also by default =flatpak-sync= will synchronize your apps list with the installed flatpak applications. Thereby, the apps list is used as the source of truth, meaning that apps that are listed there but are not installed will be installed and apps that are installed but not listed in the apps list will be removed.
+
+** add
+
+To add a new app to the app list, execute ~flatpak-sync add <app id>~ were ~<app id>~ is the application ID of the flatpak app. While it is not visible in GNOME Software you can use ~flatpak search <search term>~ for finding your app and its ID. Alternatively to ~add~ you may use the commands ~a~, ~install~ or ~i~. After the app is added to your apps list, a sync is executed.
+
+** remove
+
+To remove an installed app, execute ~flatpak-sync  remove <app id>~ were ~<app id>~ is the application ID of the flatpak app. You can get a list of all installed flatpak apps and their IDs by running ~flatpak list --app~. Alternatively to ~remove~ you may use the command ~r~, ~uninstall~ or ~u~. After the app is added to your apps list, a sync is executed.
 
 * App List Format
+
+/Notice:/  You do not necessarly need to change the app list yourself. Using the =add= and =remove= commands you can the script manage the app list file on its own.
 
 The =apps.list= is a list of application IDs (e.g. =org.kde.kdenlive=), each on their own line. Empty lines and lines starting with a hash sign (~#~) are ignored.
 
@@ -22,3 +43,4 @@ It is possible to use a different app list file by setting the =APP_LIST_PATH= e
 
 - Add a script for automatically syncing the file with a Git repository and executing it after a sync
 - Add a SystemD service/timer for the automatic syncing script
+- Write nix home-manager module to define a list of apps in your home manager configuration.
