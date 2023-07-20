@@ -56,11 +56,35 @@ function add() {
     echo "$appId" >> "$appsListFile"
 }
 
+function remove() {
+    local appId="${2:-}"
+
+    if [[ -z "$appId" ]]; then
+        echo "No application ID given."
+        exit 1
+    fi
+
+    if ! grep "$appId" "$APPS_LIST_PATH"; then
+        echo "App not in apps list."
+        exit 2
+    fi
+
+    local appsListFile
+    appsListFile="$(realpath "$APPS_LIST_PATH")"
+    appsListTmpFile="$(mktemp)"
+    grep -v "$appId" "$APPS_LIST_PATH" >> "$appsListTmpFile"
+    mv "$appsListTmpFile" "$appsListFile"
+}
+
 cmd="${1:-}"
 
 case "$cmd" in
     a|add|i|install )
         add "$@"
+        sync
+        ;;
+    r|remove|u|uninstall )
+        remove "$@"
         sync
         ;;
     * )
