@@ -16,11 +16,13 @@ ERR_COLOR="\033[1;31m"
 NO_COLOR="\033[0m"
 
 function info() {
-    printf "$APP_COLOR[$APP_NAME] $INFO_COLOR$1$NO_COLOR\n"
+    # shellcheck disable=SC2059
+    printf "${APP_COLOR}[$APP_NAME] $INFO_COLOR%s$NO_COLOR\n" "$1"
 }
 
 function error() {
-    printf "$APP_COLOR[$APP_NAME] $ERR_COLOR$1$NO_COLOR\n"
+    # shellcheck disable=SC2059
+    printf "${APP_COLOR}[$APP_NAME] $ERR_COLOR%s$NO_COLOR\n" "$1"
 }
 
 function usage() {
