@@ -38,4 +38,31 @@ function sync() {
     done
 }
 
-sync
+function add() {
+    local appId="${2:-}"
+
+    if [[ -z "$appId" ]]; then
+        echo "No application ID given."
+        exit 1
+    fi
+
+    if grep "$appId" "$APPS_LIST_PATH"; then
+        echo "App already in apps list. Run with sync command to install."
+        exit 2
+    fi
+
+    local appsListFile
+    appsListFile="$(realpath "$APPS_LIST_PATH")"
+    echo "$appId" >> "$appsListFile"
+}
+
+cmd="${1:-}"
+
+case "$cmd" in
+    a|add|i|install )
+        add "$@"
+        sync
+        ;;
+    * )
+        sync
+esac
