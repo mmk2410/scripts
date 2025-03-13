@@ -1,7 +1,0 @@
-#+title: Social Media Framing
-
-A little bash script using [[https://imagemagick.org][ImageMagick]] and [[https://exiftool.org/][exiftool]] for preparing pictures for sharing on social networks. The image given as first argument is used as a source to create the following three variations:
-
-- No changes, except a maximum resolution of 1920px at the  longest edge (suffix =-regular=)
-- White border to make the image a 1920x1920px square (suffix =-square=)
-- White border to make the image a 1080x1920px portrait orientation "story" (suffix =-story=)

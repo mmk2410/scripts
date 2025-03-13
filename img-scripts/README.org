@@ -1,0 +1,15 @@
+#+title: Image Helper Scripts
+
+A collection of little bash scripts using [[https://imagemagick.org][ImageMagick]] and [[https://exiftool.org/][exiftool]] for adjusting images.
+
+** social-media-framing
+
+Preparing pictures for sharing on social networks. The image given as first argument is used as a source to create the following three variations:
+
+- No changes, except a maximum resolution of 1920px at the  longest edge (suffix =-regular=)
+- White border to make the image a 1920x1920px square (suffix =-square=)
+- White border to make the image a 1080x1920px portrait orientation "story" (suffix =-story=)
+
+** downsize-for-web
+
+Downsize given image (first argument) for web by converting it to WebP with a maximum resolution of 1920x1920px and a target size of about 350kb.
